@@ -38,6 +38,11 @@ if not disable_gds_backend and 'GDS' in static_plugins
     nixl_lib_deps += [ gds_backend_interface, cuda_dep ]
 endif
 
+disable_weka_backend = get_option('disable_weka_backend')
+if not disable_weka_backend and 'WEKA' in static_plugins
+    nixl_lib_deps += [ weka_backend_interface, cuda_dep ]
+endif
+
 cc = meson.get_compiler('cpp')
 libtransfer_engine = cc.find_library('transfer_engine', required: false)
 disable_mooncake_backend = get_option('disable_mooncake_backend')

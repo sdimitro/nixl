@@ -22,6 +22,11 @@ if not disable_gds_backend
     subdir('cuda_gds')
 endif
 
+disable_weka_backend = get_option('disable_weka_backend')
+if not disable_weka_backend
+    subdir('weka')
+endif
+
 cc = meson.get_compiler('cpp')
 libtransfer_engine = cc.find_library('transfer_engine', required: false)
 disable_mooncake_backend = get_option('disable_mooncake_backend')

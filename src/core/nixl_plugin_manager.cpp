@@ -391,6 +391,13 @@ void nixlPluginManager::registerBuiltinPlugins() {
 #endif // DISABLE_GDS_BACKEND
 #endif // STATIC_PLUGIN_GDS
 
+#ifdef STATIC_PLUGIN_WEKA
+#ifndef DISABLE_WEKA_BACKEND
+        extern nixlBackendPlugin* createStaticWekaPlugin();
+        registerStaticPlugin("WEKA", createStaticWekaPlugin);
+#endif // DISABLE_WEKA_BACKEND
+#endif // STATIC_PLUGIN_WEKA
+
 #ifdef STATIC_PLUGIN_POSIX
         extern nixlBackendPlugin* createStaticPosixPlugin();
         registerStaticPlugin("POSIX", createStaticPosixPlugin);
